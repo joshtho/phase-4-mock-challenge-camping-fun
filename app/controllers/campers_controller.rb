@@ -9,7 +9,7 @@ class CampersController < ApplicationController
 
     def show 
         camper = Camper.find(params[:id])
-        render json: camper, include: ['activities'], status: :ok
+        render json: camper, status: :ok
     end
 
     def create 
@@ -28,6 +28,6 @@ class CampersController < ApplicationController
     end
 
     def render_unprocessable_entity(invalid)
-        render json: { error: invalid.record.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
     end
 end
