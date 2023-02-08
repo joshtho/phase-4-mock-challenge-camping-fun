@@ -9,7 +9,7 @@ class CampersController < ApplicationController
 
     def show 
         camper = Camper.find(params[:id])
-        render json: camper, includes: ['activities'] status: :ok
+        render json: camper, serializer: CamperActivitySerializer
     end
 
     def create 
